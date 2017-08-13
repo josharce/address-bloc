@@ -130,4 +130,12 @@ RSpec.describe AddressBook do
             expect(entry).to be_nil
         end
     end
+
+    describe "#detonate" do
+        it "deletes all entries" do
+            book.import_from_csv("entries.csv")
+            book.detonate
+            expect(book.entries.count).to eq 0
+        end
+    end
 end
